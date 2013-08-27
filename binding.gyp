@@ -13,9 +13,18 @@
         'src/xml_syntax_error.cc',
         'src/xml_xpath_context.cc',
       ],
-      'dependencies': [
-        './vendor/libxml/libxml.gyp:libxml'
-      ]
+
+      'cflags': [
+        '<!@(xml2-config --cflags)'
+	  ],
+
+      'libraries': [
+        '<!@(xml2-config --libs)'
+	  ],
+
+	  'cflags_cc=': [
+		'-frtti', '-fexceptions'
+	  ]
     }
   ]
 }
